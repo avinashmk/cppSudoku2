@@ -1,3 +1,9 @@
+# Visual Studio Files
+*.sln
+*.vcxproj*
+*.vs
+*Debug
+
 # Prerequisites
 *.d
 
