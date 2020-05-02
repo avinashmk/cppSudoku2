@@ -4,11 +4,9 @@
 #include <cstdio>
 #include <cstdarg>
 
-constexpr bool DEBUG_ENABLED = false;
-
 void Log::DEBUG(const char* format, ...)
 {
-	if (DEBUG_ENABLED)
+	if constexpr(DEBUG_ENABLED)
 	{
 		va_list arg;
 		va_start(arg, format);

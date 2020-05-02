@@ -15,4 +15,5 @@ public:
 
 private:
 	bool completeTrace(Grid grid);
+	std::vector<int> getEntries() const;
 };

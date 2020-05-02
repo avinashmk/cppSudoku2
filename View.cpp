@@ -48,11 +48,9 @@ bool View::printPuzzle(const Grid& puzzle) const
 	return true;
 }
 
-constexpr bool FANCY_PRINT = false;
-
 void View::fancyPrint(const Grid & puzzle) const
 {
-	if (FANCY_PRINT)
+	if constexpr(FANCY_PRINT)
 	{
 		std::system("cls");
 		printPuzzle(puzzle);

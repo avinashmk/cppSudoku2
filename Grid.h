@@ -8,6 +8,7 @@ constexpr int GRID_SIZE = 81;
 constexpr int GRID_ROWS = 9;
 constexpr int GRID_COLUMNS = 9;
 constexpr int EMPTY = 0;
+const std::vector<int> ENTRIES{1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 class Grid
 {

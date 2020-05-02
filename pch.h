@@ -9,6 +9,12 @@
 #ifndef PCH_H
 #define PCH_H
 
+constexpr bool DEBUG_ENABLED = false;
+constexpr bool FANCY_PRINT = false;
+
+constexpr bool RANDOM_TRACING = true;
+constexpr bool USE_DEFAULT_RANDOM_ENGINE = true;
+
 // TODO: add headers that you want to pre-compile here
 
 #endif //PCH_H
