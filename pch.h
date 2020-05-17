@@ -9,11 +9,27 @@
 #ifndef PCH_H
 #define PCH_H
 
+// DEBUG_ENABLED
+// true if Debug statements are to be enabled.
+// false by default.
 constexpr bool DEBUG_ENABLED = false;
+
+// FANCY_PRINT
+// true to keep printing the working solution set.
+// false by default.
+// Huge performance impact -- 1 second computation takes 1 hour(or more).
 constexpr bool FANCY_PRINT = false;
 
-constexpr bool RANDOM_TRACING = true;
-constexpr bool USE_DEFAULT_RANDOM_ENGINE = true;
+// SHUFFLE_ENTRIES
+// true to shuffle entry set used in each recursion.
+// false (recommended).
+constexpr bool SHUFFLE_ENTRIES = false;
+
+// USE_MT_ENGINE
+// MT engine generates a random set of entries with every execution.
+// Due to not impact performance, the MT engine is used to randomize only genesis entry set.
+// true to shuffle (recommended).
+constexpr bool USE_MT_ENGINE = true;
 
 // TODO: add headers that you want to pre-compile here
 

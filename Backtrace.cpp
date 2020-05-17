@@ -4,6 +4,18 @@
 #include <random>
 #include <algorithm>
 
+Backtrace::Backtrace() : _shuffledEntrySet(ENTRIES)
+{
+	if constexpr (USE_MT_ENGINE)
+	{
+		static std::random_device rd;
+		static std::mt19937 g(rd());
+		std::shuffle(_shuffledEntrySet.begin(),
+					 _shuffledEntrySet.end(), 
+					 g);
+	}
+}
+
 void Backtrace::setViewObj(const View& view)
 {
 	_view = &view;
@@ -56,21 +68,14 @@ bool Backtrace::completeTrace(Grid grid)
 	return retVal;
 }
 
-std::vector<int> Backtrace::getEntries() const
+std::vector<int> Backtrace::getEntries()
 {
-	std::vector<int> v = ENTRIES;
-	if constexpr (RANDOM_TRACING)
+	if constexpr (SHUFFLE_ENTRIES)
 	{
-		if constexpr (USE_DEFAULT_RANDOM_ENGINE)
-		{
-			std::shuffle(v.begin(), v.end(), std::default_random_engine());
-		}
-		else
-		{
-			static std::random_device rd;
-			static std::mt19937 g(rd());
-			std::shuffle(v.begin(), v.end(), g);
-		}
+		std::shuffle(_shuffledEntrySet.begin(),
+					 _shuffledEntrySet.end(), 
+					 std::default_random_engine());
 	}
-	return v;
+	auto ret = _shuffledEntrySet;
+	return ret;
 }
