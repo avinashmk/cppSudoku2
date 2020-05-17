@@ -5,7 +5,7 @@
 
 struct View
 {
-	bool getPuzzle(Grid& puzzle) const;
+	int getPuzzle(Grid& puzzle) const;
 	bool printPuzzle(const Grid& puzzle) const;
 	void fancyPrint(const Grid& puzzle) const;
 };

@@ -23,6 +23,8 @@ class Backtrace
 	// Otherwise depend on compiler optimization will take care to ignore this.
 	const View* _view;
 
+	int _progressPercent;
+
 public:
 	Backtrace();
 	void setViewObj(const View& util);
@@ -30,7 +32,7 @@ public:
 	// The entry point to start backtracing algorithm.
 	// @param grid. [Input/Output] Reference to the initial puzzle(unsolved).
 	// @return true if backtrace is complete and successful.
-	bool backtrace(Grid& grid);
+	bool backtrace(Grid& grid, int emptyCells);
 
 private:
 	// The core backtrace algorithm implementation
@@ -43,4 +45,8 @@ private:
 	// Shuffles entries if SHUFFLE_ENTRIES is true.
 	// @return The (shuffled)entries.
 	std::vector<int> getEntries();
+
+	// Utility to show progress of backtracing.
+	// (Ideal but inaccurate progress bar!)
+	void reportProgress(int row, int column);
 };

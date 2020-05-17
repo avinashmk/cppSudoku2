@@ -31,6 +31,8 @@ constexpr bool SHUFFLE_ENTRIES = false;
 // true to shuffle (recommended).
 constexpr bool USE_MT_ENGINE = true;
 
+constexpr bool SHOW_PROGRESS_BAR = true;
+
 // TODO: add headers that you want to pre-compile here
 
 #endif //PCH_H

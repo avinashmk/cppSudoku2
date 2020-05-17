@@ -8,4 +8,5 @@ public:
 	static void WARN(const char* format, ...);
 	static void ERR(const char* format, ...);
 	static void INFO(const char* format, ...);
+	static void printProgress(const int& progress);
 };

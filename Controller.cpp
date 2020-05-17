@@ -10,11 +10,11 @@ Controller::Controller()
 
 void Controller::Solve()
 {
-	_view.getPuzzle(_inputSet);
+	int emptyCells = _view.getPuzzle(_inputSet);
 	auto start = std::chrono::system_clock::now();
 
 	_workingSet = _inputSet;
-	if (_backtrace.backtrace(_workingSet))
+	if (_backtrace.backtrace(_workingSet, emptyCells))
 	{
 		Log::INFO("Backtrace successful!");
 	}

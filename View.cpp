@@ -3,8 +3,9 @@
 
 #include <iostream>
 
-bool View::getPuzzle(Grid & puzzle) const
+int View::getPuzzle(Grid & puzzle) const
 {
+	int emptyCells = 0;
 	Log::INFO("Give me something!");
 	for (int i = 0; i < 9; i++)
 	{
@@ -14,20 +15,28 @@ bool View::getPuzzle(Grid & puzzle) const
 			std::cin >> input;
 			if ((input >= 0) && (input <= 9))
 			{
+				if constexpr (SHOW_PROGRESS_BAR)
+				{
+					if (input == 0)
+					{
+						emptyCells++;
+					}
+				}
 				puzzle.at(i, j) = input;
 			}
 			else
 			{
 				Log::ERR("Incompatible input given: %d", input);
-				return false;
+				return emptyCells;
 			}
 		}
 	}
-	return true;
+	return emptyCells;
 }
 
 bool View::printPuzzle(const Grid& puzzle) const
 {
+	std::cout << std::endl;
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 9; j++)

@@ -46,3 +46,12 @@ void Log::INFO(const char * format, ...)
 	va_end(arg);
 	printf("\n");
 }
+
+void Log::printProgress(const int& progress)
+{
+	printf("\r[INFO ] Progress: %d%%...", progress);
+	if (progress > 99)
+	{
+		printf("\n");
+	}
+}
